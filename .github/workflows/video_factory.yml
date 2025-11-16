@@ -1,5 +1,4 @@
 name: Video Factory
-
 # Déclenché par n8n (via workflow_dispatch)
 on:
   workflow_dispatch:
