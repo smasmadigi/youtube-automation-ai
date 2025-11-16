@@ -1,5 +1,4 @@
 name: Video Factory
-name: Video Factory
 
 # Déclenché par n8n (via workflow_dispatch)
 on:
@@ -8,7 +7,7 @@ on:
       prompt:
         description: 'Le prompt IA pour générer le script'
         required: true
-        default: 'Les 5 faits les plus surprenants sur l'IA'
+        default: 'Les 5 faits les plus surprenants sur IA'
       titre:
         description: 'Le titre de travail'
         required: true
