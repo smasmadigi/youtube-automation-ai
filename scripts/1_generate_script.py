@@ -5,8 +5,8 @@ import google.generativeai as genai
 # Configurez l'API Gemini
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
-# CORRECTION : Utilisation de 'gemini-1.5-flash-latest' au lieu de 'gemini-1.5-flash'
-model = genai.GenerativeModel('gemini-1.5-flash-latest')
+# CORRECTION : Utilisation du modèle stable 'gemini-pro'
+model = genai.GenerativeModel('gemini-pro')
 
 # Récupérez le prompt de n8n
 user_prompt = os.environ.get("USER_PROMPT")
