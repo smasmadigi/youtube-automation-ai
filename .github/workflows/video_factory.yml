@@ -7,7 +7,7 @@ on:
       prompt:
         description: 'Le prompt IA pour générer le script'
         required: true
-        default: 'Les 5 faits les plus surprenants sur IA'
+        default: 'Les 5 faits les plus surprenants sur lIA'
       titre:
         description: 'Le titre de travail'
         required: true
@@ -32,6 +32,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
+          # --- CORRECTION CI-DESSOUS ---
+          # Forcer la mise à jour vers la dernière API Google
+          python -m pip install --upgrade google-generativeai
 
       - name: Run script generation
         env:
