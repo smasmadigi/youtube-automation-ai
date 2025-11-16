@@ -1,4 +1,5 @@
 name: Video Factory
+
 # Déclenché par n8n (via workflow_dispatch)
 on:
   workflow_dispatch:
@@ -6,7 +7,7 @@ on:
       prompt:
         description: 'Le prompt IA pour générer le script'
         required: true
-        default: 'Les 5 faits les plus surprenants sur l'IA'
+        default: 'Les 5 faits les plus surprenants sur IA'
       titre:
         description: 'Le titre de travail'
         required: true
@@ -40,7 +41,7 @@ jobs:
 
       - name: Upload script artifact
         id: upload_script
-        uses: actions/upload-artifact@v4  # <-- CORRIGÉ
+        uses: actions/upload-artifact@v4
         with:
           name: script-json
           path: video_script.json
@@ -51,7 +52,7 @@ jobs:
     needs: generate_script
     steps:
       - name: Download script
-        uses: actions/download-artifact@v4  # <-- CORRIGÉ
+        uses: actions/download-artifact@v4
         with:
           name: script-json
 
@@ -71,7 +72,7 @@ jobs:
         run: python scripts/2_generate_audio.py
       
       - name: Upload audio files
-        uses: actions/upload-artifact@v4  # <-- CORRIGÉ
+        uses: actions/upload-artifact@v4
         with:
           name: audio-files
           path: audio/
@@ -82,7 +83,7 @@ jobs:
     needs: generate_script
     steps:
       - name: Download script
-        uses: actions/download-artifact@v4  # <-- CORRIGÉ
+        uses: actions/download-artifact@v4
         with:
           name: script-json
 
@@ -102,7 +103,7 @@ jobs:
         run: python scripts/3_find_broll.py
       
       - name: Upload video files
-        uses: actions/upload-artifact@v4  # <-- CORRIGÉ
+        uses: actions/upload-artifact@v4
         with:
           name: video-files
           path: videos/
@@ -128,7 +129,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download all artifacts
-        uses: actions/download-artifact@v4  # <-- CORRIGÉ
+        uses: actions/download-artifact@v4
         with:
           path: artifacts/
       
@@ -143,7 +144,7 @@ jobs:
         run: python scripts/4_compile_video.py
 
       - name: Upload final video
-        uses: actions/upload-artifact@v4  # <-- CORRIGÉ
+        uses: actions/upload-artifact@v4
         with:
           name: final_video # Doit correspondre au nœud n8n "Download Artifact"
           path: final_video.mp4
