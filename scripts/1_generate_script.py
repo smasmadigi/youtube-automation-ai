@@ -7,7 +7,7 @@ genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 # Rétablissement du modèle 1.5-flash, qui fonctionnera
 # après la mise à jour de la bibliothèque dans le workflow.
-model = genai.GenerativeModel('gemini-1.5-flash-latest')
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Récupérez le prompt de n8n
 user_prompt = os.environ.get("USER_PROMPT")
